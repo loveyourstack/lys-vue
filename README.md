@@ -1,5 +1,5 @@
-# Vue 3 + TypeScript + Vite
+# lys - LoveYourStack - Vue elements
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Vue functions and components for use in [lys](https://github.com/loveyourstack/lys) projects.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Work in progress. Might become an NPM package at some point, but for now is just intended to be copied into the project as needed.
