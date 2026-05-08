@@ -6,9 +6,10 @@
       </v-list-item>
     </template>
     <v-list>
-      <v-list-item v-for="(header, i) in props.headers" :key="i" :value="header" @click="emit('toggle', header.key)">
+      <v-list-item v-for="(header, i) in props.headers" :key="i" :value="header" 
+        @click="excludedHeaders.includes(header.key) ? excludedHeaders = excludedHeaders.filter((v) => v != header.key) : excludedHeaders.push(header.key); emit('change')">
         <template v-slot:append>
-          <v-icon :icon="getHeaderListIcon(props.excludedHeaders, header.key)" :color="getHeaderListIconColor(props.excludedHeaders, header.key)"></v-icon>
+          <v-icon :icon="getHeaderListIcon(excludedHeaders, header.key)" :color="getHeaderListIconColor(excludedHeaders, header.key)"></v-icon>
         </template>
         <v-list-item-title class="clickable" v-text="header.title"></v-list-item-title>
       </v-list-item>
@@ -20,11 +21,12 @@
 
 const props = defineProps<{
   headers: readonly any[]
-  excludedHeaders: string[]
 }>()
 
+const excludedHeaders = defineModel<string[]>({ required: true })
+
 const emit = defineEmits<{
-  (e: 'toggle', key: string): void
+  (e: 'change'): void
 }>()
 
 function getHeaderListIcon(excludedHeaders: string[], headerKey: string) {
