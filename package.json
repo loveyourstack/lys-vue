@@ -1,7 +1,9 @@
 {
   "name": "lys-vue",
   "version": "0.1.0",
+  "description": "Vue + Vuetify component library for LoveYourStack projects",
   "type": "module",
+  "license": "MIT",
   "files": [
     "dist"
   ],
@@ -12,7 +14,14 @@
     ".": {
       "import": "./dist/lys-vue.js",
       "types": "./dist/main.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "sideEffects": [
     "*.css"
@@ -31,6 +40,7 @@
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/language-core": "^3.2.8",
     "@vue/tsconfig": "^0.9.1",
+    "@vueuse/core": "^14.2.1",
     "typescript": "~6.0.2",
     "unplugin-dts": "^1.0.0",
     "unplugin-fonts": "^2.0.0",

@@ -1,13 +1,22 @@
 import type { App, Plugin } from 'vue'
 
-import AdjustColsList from './components/AdjustColsList.vue'
-export { AdjustColsList }
+export * from './types'
+export * from './functions'
 
-//export * from './types'
+import * as formElements from './components/formElements'
+export * from './components/formElements'
+
+import * as tableElements from './components/tableElements'
+export * from './components/tableElements'
 
 const plugin: Plugin = {
   install(app: App) {
-    app.component('AdjustColsList', AdjustColsList)
+    Object.entries(formElements).forEach(([name, component]) => {
+      app.component(name, component as any)
+    }),
+    Object.entries(tableElements).forEach(([name, component]) => {
+      app.component(name, component as any)
+    })
   },
 }
 
