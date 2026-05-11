@@ -18,7 +18,7 @@
     "*.css"
   ],
   "scripts": {
-    "build": "vue-tsc -b ./tsconfig-build.json && vite build",
+    "build": "vue-tsc -b ./tsconfig-build.json --noEmit && vite build",
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {

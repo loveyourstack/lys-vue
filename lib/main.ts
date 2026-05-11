@@ -3,7 +3,6 @@ import type { App, Plugin } from 'vue'
 import AdjustColsList from './components/AdjustColsList.vue'
 export { AdjustColsList }
 
-//export * from './utils'
 //export * from './types'
 
 const plugin: Plugin = {
