@@ -18,7 +18,8 @@ const props = defineProps<{
   name: string
 }>()
 
-// 
+// don't set required: true for boolean | undefined, it causes TS error.
+// see https://github.com/vuejs/vue/issues/4792#issuecomment-1591765678
 const model = defineModel<boolean | undefined>()
 
 const emit = defineEmits<{

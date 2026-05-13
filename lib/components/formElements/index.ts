@@ -1,8 +1,3 @@
-export { default as LArrayBool } from './LArrayBool.vue'
-export { default as LArrayDate } from './LArrayDate.vue'
-export { default as LArrayInt } from './LArrayInt.vue'
-export { default as LArrayNumeric } from './LArrayNumeric.vue'
-export { default as LArrayText } from './LArrayText.vue'
 export { default as LCancelAndSaveActions } from './LCancelAndSaveActions.vue'
 export { default as LTextFieldDate } from './LTextFieldDate.vue'
 export { default as LTextFieldTime } from './LTextFieldTime.vue'

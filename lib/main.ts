@@ -3,6 +3,9 @@ import type { App, Plugin } from 'vue'
 export * from './types'
 export * from './functions'
 
+import * as arrayControls from './components/arrayControls'
+export * from './components/arrayControls'
+
 import * as filterControls from './components/filterControls'
 export * from './components/filterControls'
 
@@ -14,6 +17,9 @@ export * from './components/tableElements'
 
 const plugin: Plugin = {
   install(app: App) {
+    Object.entries(arrayControls).forEach(([name, component]) => {
+      app.component(name, component as any)
+    }),
     Object.entries(formElements).forEach(([name, component]) => {
       app.component(name, component as any)
     }),
