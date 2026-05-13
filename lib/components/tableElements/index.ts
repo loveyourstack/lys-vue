@@ -1,1 +1,1 @@
-export { default as AdjustColsList } from './AdjustColsList.vue'
+export { default as LAdjustColsList } from './LAdjustColsList.vue'

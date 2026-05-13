@@ -1,1 +1,12 @@
-export type { Result } from './base'
+export {
+	BooleanOptions,
+	FilterOperators
+} from './base'
+
+export type {
+	DateFilter,
+	FilterOperator,
+	NumericFilter,
+	Result,
+	SelectionItem
+} from './base'
