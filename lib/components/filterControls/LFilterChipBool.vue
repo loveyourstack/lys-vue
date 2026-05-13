@@ -18,7 +18,8 @@ const props = defineProps<{
   name: string
 }>()
 
-const model = defineModel<boolean | undefined>({ required: true })
+// 
+const model = defineModel<boolean | undefined>()
 
 const emit = defineEmits<{
   (e: 'close'): void
