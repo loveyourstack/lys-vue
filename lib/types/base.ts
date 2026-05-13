@@ -15,6 +15,12 @@ export interface DateFilter {
   value_upper: string // YYYY-MM-DD: treated as upper limit when operator is 'between'
 }
 
+export interface GetMetadata {
+  count: number
+  total_count: number
+  total_count_is_estimated: boolean
+}
+
 export interface NumericFilter {
   operator: FilterOperator | undefined
   value: number

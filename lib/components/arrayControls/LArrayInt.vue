@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-import { strToInt } from '../../functions/strings'
+import { strToInt } from '../../functions/string'
 
 const props = defineProps<{
   label: string

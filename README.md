@@ -18,6 +18,7 @@ import LysVue, { AdjustColsList } from 'lys-vue'
 
 ## Peer dependencies
 
+- axios ^1.13.0
 - vue ^3.5.0
 - vuetify ^4.0.0
 

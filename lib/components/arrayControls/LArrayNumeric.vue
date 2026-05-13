@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-import { strToFloat } from '../../functions/strings'
+import { strToFloat } from '../../functions/string'
 
 const props = defineProps<{
   label: string

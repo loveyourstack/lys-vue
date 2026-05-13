@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, watch } from 'vue'
-import { setAutocompleteMenus } from '../../functions/forms'
+import { setAutocompleteMenus } from '../../functions/form'
 import type { SelectionItem } from '../../types/base'
 
 const props = defineProps<{

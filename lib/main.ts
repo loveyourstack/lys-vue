@@ -2,6 +2,7 @@ import type { App, Plugin } from 'vue'
 
 export * from './types'
 export * from './functions'
+export * from './composables'
 
 import * as arrayControls from './components/arrayControls'
 export * from './components/arrayControls'

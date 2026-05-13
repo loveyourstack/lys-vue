@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-import { strToDate } from '../../functions/strings'
+import { strToDate } from '../../functions/string'
 
 const props = defineProps<{
   label: string
