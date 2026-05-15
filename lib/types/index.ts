@@ -1,3 +1,9 @@
+export type {
+	AuditChange,
+	AuditUpdate,
+	FkReplacement
+} from './audit'
+
 export {
 	BooleanOptions,
 	FilterOperators
@@ -11,3 +17,11 @@ export type {
 	Result,
 	SelectionItem
 } from './base'
+
+export type {
+	PgMonBloat,
+	PgMonQuery,
+    PgMonSetting,
+	PgMonTableSize,
+	PgMonUnusedIdx
+} from './pgMon'

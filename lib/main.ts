@@ -13,6 +13,9 @@ export * from './components/filterControls'
 import * as formElements from './components/formElements'
 export * from './components/formElements'
 
+import * as pgMonitor from './components/pgMonitor'
+export * from './components/pgMonitor'
+
 import * as tableElements from './components/tableElements'
 export * from './components/tableElements'
 
@@ -25,6 +28,9 @@ const plugin: Plugin = {
       app.component(name, component as any)
     }),
     Object.entries(filterControls).forEach(([name, component]) => {
+      app.component(name, component as any)
+    }),
+    Object.entries(pgMonitor).forEach(([name, component]) => {
       app.component(name, component as any)
     }),
     Object.entries(tableElements).forEach(([name, component]) => {

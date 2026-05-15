@@ -1,4 +1,5 @@
 import { computed, onMounted, ref, toValue, type MaybeRefOrGetter, type Ref } from 'vue'
+import { type VForm } from 'vuetify/components'
 import type { AxiosInstance } from 'axios'
 import { fetchOnce } from '../functions/fetch'
 import { callDelete } from '../functions/form'
@@ -32,7 +33,7 @@ export function useFormCrud<T>(params: UseFormCrudParams<T>) {
   const saving = ref(false)
   const showSaved = ref(false)
   const saveBtnLabel = ref(params.id !== 0 ? 'Save' : 'Create')
-  const itemForm = ref()
+  const itemForm = ref<InstanceType<typeof VForm>>()
 
   const isNew = computed(() => params.id === 0)
 
@@ -56,8 +57,8 @@ export function useFormCrud<T>(params: UseFormCrudParams<T>) {
   }
 
   async function saveItem() {
-    const { valid } = await itemForm.value?.validate()
-    if (!valid) { return }
+    const result = await itemForm.value?.validate()
+    if (!result?.valid) { return }
 
     saving.value = true
 
@@ -127,11 +128,11 @@ export function useFormPatch(params: UseFormPatchParams) {
 
   const saving = ref(false)
   const showSaved = ref(false)
-  const itemForm = ref()
+  const itemForm = ref<InstanceType<typeof VForm>>()
 
   async function saveItem() {
-    const { valid } = await itemForm.value?.validate()
-    if (!valid) { return }
+    const result = await itemForm.value?.validate()
+    if (!result?.valid) { return }
 
     const patchId = toValue(params.patch_id)
     if (patchId === undefined) { return }
