@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import dts from 'unplugin-dts/vite'
@@ -9,6 +9,10 @@ export default defineConfig({
     vue(),
     dts({ tsconfigPath: './tsconfig.app.json', outDirs: 'dist', entryRoot: 'lib' }),
   ],
+  test: {
+    environment: 'jsdom',
+    include: ['tests/**/*.spec.ts'],
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
