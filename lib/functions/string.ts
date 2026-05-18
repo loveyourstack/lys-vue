@@ -1,11 +1,10 @@
 import { type Result } from '../types/base'
 
 export function properCase(s: string): string {
-  const sA = s.split(' ')
-  if (sA.length === 0) { return s }
-  return sA
-  .map(w => w[0]!.toUpperCase() + w.substring(1).toLowerCase())
-  .join(' ')
+  return s
+    .split(' ')
+    .map(w => w.charAt(0).toUpperCase() + w.substring(1).toLowerCase())
+    .join(' ')
 }
 
 export function strToBool(str: string): Result<boolean> {
@@ -25,15 +24,24 @@ export function strToBool(str: string): Result<boolean> {
 }
 
 export function strToDate(str: string): Result<Date> {
-  const regex = /^\d{4}-\d{2}-\d{2}$/
-  
-  if (!regex.test(str)) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str)
+  if (!match) {
     return { ok: false, error: `invalid date format: '${str}'` }
   }
-  
-  const date = new Date(str);
-  
-  if (isNaN(date.getTime())) {
+
+  const year = Number(match[1])
+  const month = Number(match[2]) // 1-12
+  const day = Number(match[3])   // 1-31
+
+  // Create UTC date to avoid local-timezone rollover surprises.
+  const date = new Date(Date.UTC(year, month - 1, day))
+
+  const isSameDate =
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+
+  if (!isSameDate) {
     return { ok: false, error: `invalid date value: '${str}'` }
   }
   
@@ -49,10 +57,11 @@ export function strToFloat(str: string): Result<number> {
 }
 
 export function strToInt(str: string): Result<number> {
-  const n = parseInt(str, 10)
-  if (isNaN(n)) {
+  const trimmed = str.trim()
+  if (!/^[+-]?\d+$/.test(trimmed)) {
     return { ok: false, error: `invalid integer value: '${str}'` }
   }
+  const n = parseInt(trimmed, 10)
   return { ok: true, value: n }
 }
 
