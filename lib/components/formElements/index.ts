@@ -1,3 +1,5 @@
+export { default as LDialogCard } from './LDialogCard.vue'
 export { default as LCancelAndSaveActions } from './LCancelAndSaveActions.vue'
+export { default as LTextArrayEntry } from './LTextArrayEntry.vue'
 export { default as LTextFieldDate } from './LTextFieldDate.vue'
 export { default as LTextFieldTime } from './LTextFieldTime.vue'
