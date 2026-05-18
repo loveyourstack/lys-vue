@@ -2,7 +2,7 @@
   <v-menu v-model="menuModel" :close-on-content-click="false" transition="scale-transition" offset="5px 0px">
 
     <template v-slot:activator="{ props }">
-      <v-chip v-bind="props" size="large" variant="flat">
+      <v-chip v-bind="props" size="large">
         <template #prepend>
           <v-icon class="mr-1" :icon="applied ? 'mdi-check' : 'mdi-plus'" :color="applied ? 'primary' : undefined" />
         </template>
