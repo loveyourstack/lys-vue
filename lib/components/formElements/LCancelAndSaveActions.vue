@@ -6,7 +6,7 @@
         <v-icon icon="mdi-arrow-left"></v-icon>
       </v-btn>
 
-      <v-btn color="primary" :disabled="props.saving" @click="emit('save')">{{ props.saveBtnLabel }}</v-btn>
+      <v-btn color="primary" :loading="props.saving" :disabled="props.saveDisabled" @click="emit('save')">{{ props.saveBtnLabel }}</v-btn>
 
       <v-fade-transition mode="out-in">
         <v-chip v-if="props.showSaved" color="success">Saved</v-chip>
@@ -24,6 +24,7 @@ const props = defineProps<{
   saving: boolean
   showSaved: boolean
   saveBtnLabel: string
+  saveDisabled?: boolean
 }>()
 
 const emit = defineEmits<{

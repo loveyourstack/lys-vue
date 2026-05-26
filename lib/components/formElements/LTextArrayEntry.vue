@@ -45,7 +45,7 @@
           <v-icon icon="mdi-arrow-left"></v-icon>
         </v-btn>
 
-        <v-btn color="primary" @click="enter">Enter</v-btn>
+        <v-btn color="primary" :loading="props.saving" :disabled="props.enterDisabled" @click="enter">Enter</v-btn>
 
       </v-col>
     </v-row>
@@ -59,9 +59,11 @@ import { type VForm } from 'vuetify/components'
 
 const props = defineProps<{
   title: string
+  saving: boolean
   maxItems: number
   subtitle?: string
   sampleSheetLink?: string
+  enterDisabled?: boolean
 }>()
 
 const emit = defineEmits<{
