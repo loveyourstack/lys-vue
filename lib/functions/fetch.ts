@@ -7,6 +7,7 @@ type FetchOnceParams<T> = {
   myUrl: string
   result: Ref<T | T[]>
   isLoading?: Ref<boolean>
+  metaData?: Ref<GetMetadata>
   reqHeaders?: Record<string, string>
   onSuccess?: () => void
 }
@@ -21,6 +22,10 @@ export function fetchOnce<T>(params: FetchOnceParams<T>) {
   params.ax.get(params.myUrl, { headers: params.reqHeaders })
     .then(resp => {
       params.result.value = resp.data.data
+      
+      if (params.metaData) {
+        params.metaData.value = resp.data.metadata
+      }
 
       if (params.onSuccess) {
         params.onSuccess()
