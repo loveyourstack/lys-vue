@@ -1,6 +1,6 @@
 {
   "name": "lys-vue",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Vue + Vuetify component library for LoveYourStack projects",
   "type": "module",
   "license": "MIT",
