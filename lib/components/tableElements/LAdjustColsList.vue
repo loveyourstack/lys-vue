@@ -2,7 +2,7 @@
   <v-menu :close-on-content-click=false location="start">
     <template v-slot:activator="{ props }">
       <v-list-item v-bind="props" prepend-icon="mdi-table-column">
-        <v-list-item-title class="clickable">Adjust columns</v-list-item-title>
+        <v-list-item-title class="clickable">{{ props.adjustColumnsLabel || 'Adjust columns' }}</v-list-item-title>
       </v-list-item>
     </template>
     <v-list>
@@ -21,6 +21,7 @@
 
 const props = defineProps<{
   headers: readonly any[]
+  adjustColumnsLabel?: string
 }>()
 
 const excludedHeaders = defineModel<string[]>({ required: true })

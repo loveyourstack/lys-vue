@@ -16,13 +16,13 @@
         <v-list>
 
           <v-list-item prepend-icon="mdi-selection-ellipse-remove" @click="emit('resetTable')">
-            <v-list-item-title class="clickable">Reset table</v-list-item-title>
+            <v-list-item-title class="clickable">{{ props.resetTableLabel || 'Reset table' }}</v-list-item-title>
           </v-list-item>
 
           <l-adjust-cols-list :headers="props.headers" v-model="excludedHeadersModel" />
 
           <v-list-item prepend-icon="mdi-download-outline" @click="async () => await fileDownload(props.ax, props.excelDlUrl, props.reqHeaders)">
-            <v-list-item-title class="clickable">Download to Excel</v-list-item-title>
+            <v-list-item-title class="clickable">{{ props.downloadToExcelLabel || 'Download to Excel' }}</v-list-item-title>
           </v-list-item>
 
           <slot name="menuItems" />
@@ -43,6 +43,8 @@ const props = defineProps<{
   headers: readonly any[]
   excelDlUrl: string
   title?: string
+  resetTableLabel?: string
+  downloadToExcelLabel?: string
   reqHeaders?: Record<string, string>
 }>()
 

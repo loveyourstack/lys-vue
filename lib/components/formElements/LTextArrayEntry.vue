@@ -45,7 +45,9 @@
           <v-icon icon="mdi-arrow-left"></v-icon>
         </v-btn>
 
-        <v-btn color="primary" :loading="props.saving" :disabled="props.enterDisabled" @click="enter">Enter</v-btn>
+        <v-btn color="primary" :loading="props.saving" :disabled="props.enterDisabled" @click="enter">
+          {{ props.enterLabel || 'Enter' }}
+        </v-btn>
 
       </v-col>
     </v-row>
@@ -63,6 +65,7 @@ const props = defineProps<{
   maxItems: number
   subtitle?: string
   sampleSheetLink?: string
+  enterLabel?: string
   enterDisabled?: boolean
 }>()
 
